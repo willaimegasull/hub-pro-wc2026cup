@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>世界杯 · 专题杂志 | pro-wc2026cup.com</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f5fafc;
+            color: #1e2a32;
+            line-height: 1.7;
+            padding: 20px 16px 40px;
+        }
+
+        .magazine {
+            max-width: 1120px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        /* ——— 横幅 hero ——— */
+        .hero {
+            background: linear-gradient(132deg, #d9f0f5 0%, #b6dfe8 100%);
+            border-radius: 32px;
+            padding: 32px 28px 28px;
+            box-shadow: 0 8px 24px rgba(0, 50, 60, 0.06);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        .hero-text {
+            flex: 2 1 260px;
+            min-width: 200px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #09303a;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .hero-text .sub {
+            font-size: 1rem;
+            color: #1f4a57;
+            background: rgba(255,255,255,0.5);
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 40px;
+            font-weight: 500;
+            backdrop-filter: blur(2px);
+        }
+
+        .hero-badge {
+            background: #155a6b;
+            color: #e1f4fa;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 8px 20px;
+            border-radius: 60px;
+            box-shadow: 0 2px 8px rgba(12, 70, 85, 0.15);
+            margin-top: 12px;
+            display: inline-block;
+            letter-spacing: 0.3px;
+        }
+
+        .hero-illustration {
+            flex: 0 0 auto;
+            font-size: 3.6rem;
+            line-height: 1;
+            padding-right: 8px;
+            opacity: 0.7;
+            transform: rotate(4deg);
+        }
+
+        /* ——— 网格卡片 ——— */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 24px 18px 20px;
+            box-shadow: 0 4px 12px rgba(0,50,60,0.04);
+            border: 1px solid #d1e7ef;
+            transition: transform 0.15s ease, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0, 60, 70, 0.08);
+            border-color: #9ecfd8;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 6px;
+            display: inline-block;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #0c4453;
+            margin-bottom: 6px;
+        }
+
+        .card p {
+            font-size: 0.94rem;
+            color: #2f4b55;
+        }
+
+        /* ——— 三段自然介绍（杂志风格） ——— */
+        .essay {
+            background: #ffffffdd;
+            backdrop-filter: blur(2px);
+            padding: 28px 24px;
+            border-radius: 28px;
+            border: 1px solid #cee6ed;
+            box-shadow: 0 2px 12px rgba(0,40,50,0.02);
+        }
+
+        .essay h2 {
+            font-size: 1.6rem;
+            font-weight: 560;
+            letter-spacing: -0.3px;
+            color: #0a3b47;
+            margin-bottom: 18px;
+            border-left: 6px solid #2b889b;
+            padding-left: 16px;
+        }
+
+        .essay p {
+            margin-bottom: 18px;
+            font-size: 1rem;
+            color: #1f3841;
+        }
+
+        .essay p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-link {
+            background: #d7eef4;
+            padding: 4px 10px;
+            border-radius: 30px;
+            font-weight: 500;
+            text-decoration: none;
+            color: #0a4b5a;
+            transition: background 0.2s, color 0.2s;
+            border-bottom: 1px solid #559baa;
+        }
+
+        .highlight-link:hover {
+            background: #b3dbe6;
+            color: #022a34;
+        }
+
+        /* ——— FAQ 摘要区 ——— */
+        .faq-mini {
+            background: #e5f3f8;
+            border-radius: 28px;
+            padding: 24px 24px 20px;
+        }
+
+        .faq-mini h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #084351;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .faq-item {
+            margin-bottom: 12px;
+            border-bottom: 1px dashed #b3cfda;
+            padding-bottom: 10px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #124f5e;
+        }
+
+        .faq-a {
+            font-size: 0.94rem;
+            color: #1c414d;
+            margin-top: 4px;
+        }
+
+        /* ——— 页尾 ——— */
+        .page-footer {
+            margin-top: 12px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #3c6c78;
+            padding: 20px 12px;
+            border-top: 2px dotted #b8d7e0;
+        }
+
+        .page-footer a {
+            color: #115b6b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #8fbdc9;
+        }
+
+        .page-footer a:hover {
+            color: #02323e;
+            border-color: #115b6b;
+        }
+
+        /* 移动端微调 */
+        @media (max-width: 480px) {
+            .hero {
+                padding: 24px 16px 22px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-illustration {
+                font-size: 2.6rem;
+                align-self: flex-end;
+                margin-top: -12px;
+                padding-right: 0;
+            }
+
+            .essay {
+                padding: 20px 14px;
+            }
+
+            .grid-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 768px) {
+            body {
+                padding: 32px 28px 60px;
+            }
+            .essay {
+                padding: 36px 34px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="magazine">
+
+        <!-- 首页横幅 hero -->
+        <div class="hero">
+            <div class="hero-text">
+                <h1>世界杯 · 回音壁</h1>
+                <div class="sub">再次启程 · 收藏热爱</div>
+                <div class="hero-badge">⚽ 持续关注 2026 之路</div>
+            </div>
+            <div class="hero-illustration">🏆🌍</div>
+        </div>
+
+        <!-- 网格卡片：特点 / 场景 -->
+        <div class="grid-cards">
+            <div class="card">
+                <span class="card-icon">📌</span>
+                <h3>收藏此刻</h3>
+                <p>将你关注的赛事、队伍与回忆集中在一处，随时找回那份热情。</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">🔄</span>
+                <h3>再次访问</h3>
+                <p>无论是赛程回顾还是新动态，熟悉的位置总有一扇门为你敞开。</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">📬</span>
+                <h3>持续关注</h3>
+                <p>订阅式提醒也好，自发的回访也好，让世界杯的节奏融入日常角落。</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">🧩</span>
+                <h3>碎片聚合</h3>
+                <p>精选观点、数据、故事——杂志式阅读体验，在手机上刚刚好。</p>
+            </div>
+        </div>
+
+        <!-- 三段自然介绍 (背景说明 + 从再次访问、收藏和持续关注展开) -->
+        <div class="essay">
+            <h2>一次回访，一场漫谈</h2>
+            <p>
+                对于许多人来说，<strong>世界杯</strong>的印记早已超越了单纯赛历。它藏在上届决赛的某个回放里，
+                藏在与朋友交换的球星卡背面，或者是每次打开浏览器时，指尖不自觉地输入那个熟悉的网址。
+                正因如此，我们常把 <a href="https://pro-wc2026cup.com" class="highlight-link">世界杯</a> 当作一个可以随时折返的站点——
+                不需要理由，也不必刻意准备。再次访问，像是翻开一本夹着旧车票的书。
+            </p>
+            <p>
+                收藏的乐趣也正在于此。你可以保存某篇深度观察，截取一段战术图解，或是把某个精彩时刻的页面
+                留在书签栏里。我们为这些自然的需求留出了空间：干净的文字版式、克制的配色，让每一次“再打开”
+                都像第一次那样清晰。无论是清晨的快速浏览，还是深夜的沉浸阅读，页面节奏都会跟随你的习惯慢慢铺展。
+            </p>
+            <p>
+                而持续关注，不必耗费心力。偶尔的提醒、规律的专题更新，或是像翻阅杂志一样隔几天回来看看——
+                我们相信，真正的热情不需要靠弹窗维持。这一届世界杯的旅途还很长，从预选赛到决赛圈，
+                <strong>pro-wc2026cup.com</strong> 愿意成为那个安静、可靠的角落。你记得也好，忘了也好，
+                它都在那里，等你再次推开那扇门。
+            </p>
+        </div>
+
+        <!-- FAQ 摘要 (杂志式中插) -->
+        <div class="faq-mini">
+            <h3><span>❓</span> 一些你可能想了解的</h3>
+            <div class="faq-item">
+                <div class="faq-q">这个站点会频繁改动吗？</div>
+                <div class="faq-a">内容与结构会跟随赛程自然更新，但不会突然更换地址或大幅更改入口，回访时始终熟悉。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">我可以收藏哪些内容？</div>
+                <div class="faq-a">专题文章、球队数据、赛程卡片等均可通过浏览器收藏或稍后阅读，页面尊重你的个人整理习惯。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">如何保持「持续关注」？</div>
+                <div class="faq-a">你可以隔段时间回来看一眼，或者把 <a href="https://pro-wc2026cup.com" style="color:#0b5566;text-decoration:underline;text-underline-offset:3px;">世界杯</a> 加入书签 —— 不需要注册或留下信息。</div>
+            </div>
+        </div>
+
+        <!-- 页尾访问提示 -->
+        <div class="page-footer">
+            <p>杂志式专题 · 蓝绿底色 · 每一次回访都是新的翻阅</p>
+            <p style="margin-top:12px;">
+                再次访问：<a href="https://pro-wc2026cup.com">世界杯</a>  · 收藏此刻 · 持续关注
+            </p>
+            <p style="margin-top:16px; font-size:0.8rem; opacity:0.6;">
+                pro-wc2026cup.com — 安静角落，等你回来
+            </p>
+        </div>
+    </div>
+</body>
+</html>
